@@ -1,23 +1,44 @@
 # Book a book
-L’objectif de cette application est permettre à monsieur Spirlet de gérer ses réservations et achats de livres par les étudiants. La gestion de ces réservations est un besoin récurrent d’année en année. Il sera donc utile de contextualiser tout ce qui suit selon l’année scolaire.
 
-Les besoins de monsieur Spirlet sont : 
+Chaque année, au début de l’année, monsieur Spirlet propose aux étudiants d’acheter à un prix avantageux les livres obligatoires du cursus en infographie.
 
-- gérer son compte (changer son mot de passe, son email, son avatar éventuel) ;
-- gérer une liste des livres (ajout, modification, suppression) proposés aux étudiants pour une année donnée. Pour chaque ouvrage, il faut idéalement fournir le titre ; l(es) auteur(s) ; détails d’édition (texte libre), la maison d’édition ; l’ISBN ; le prix public ; le prix proposé et une image de la couverture ;
-- pour chaque étudiant, indiquer le statut des paiements et des livraisons. De ces indications résultent des notifications. Voici un exemple de scénario : Un étudiant a commandé 6 livres sur les 12 disponibles en tout et a effectué son paiement. Pour les 6 livres concernés, monsieur Spirlet doit pouvoir noter que le paiement a été fait par l’étudiant. De même, lorsque monsieur Spirlet reçoit les livres, il note « disponible » dans la colonne concernée et l’étudiant reçoit alors une notification. De même, quand il vient emporter ses commandes, monsieur Spirlet peut changer le statut de « disponible » vers « emporté » et l’étudiant reçoit alors une notification. 
+À l’heure qu’il est sa gestion du processus passe par l’utilisation d’une feuille Excel destinée à synthétiser les statuts des commandes et une impression d’un bon de commande à remplir par les étudiants.
 
-ALTERNATIVE : Il fait toutes les modifs dans son dashboard, quand il a fini il clique sur un bouton genre « Valider et envoyer les notifications » et chaque étudiant reçoit une seule notification pour tous les changements qui le concernent, et plus une notification par changement. 
+Dans le courant de l’année dernière, monsieur Spirlet m’a demandé si il était envisageable de réaliser une application Web afin d’automatiser un peu le processus, d’utiliser moins de papier et de centraliser les informations. 
 
-Les étudiants sont également des utilisateurs de l’application. Un étudiant s’inscrit lui-même dans l’application. Il doit fournir son nom, son prénom et son email. L’email doit être vérifié. Sur l’application, les étudiants peuvent constituer une commande (attention, ils peuvent commander un même livre en plusieurs exemplaires) et voir les statuts associés à leur commande. Monsieur Spirlet reçoit des notifications lorsqu’un nouvel étudiant s’inscrit sur l’application et lorsqu’un étudiant a constitué sa commande.
+Ce projet a tout à fait le format qui convient pour l’apprentissage des technologies à maîtriser dans le cadre du cours de projets Web. J’ai donc accepté d’en faire un des projets du cours, en plus du PFE et d’un ou deux sites Web, à venir.
+
+L’objectif de cette application est donc permettre à monsieur Spirlet de gérer d’année en année ses réservations et achats de livres par les étudiants.
+
+En tant qu’utilisateur, monsieur Spirlet a naturellement des besoins que votre application doit satisfaire. Et bien entendu, en tant qu’utilisateurs, les étudiants ont également des besoins particuliers. 
+
+## Monsieur Spirlet doit pouvoir :
+
+- gérer son compte (changer son mot de passe, son email, un avatar éventuel) ;
+- gérer une liste des livres (ajout, modification, suppression) proposés aux étudiants pour une année donnée. Pour chaque ouvrage, il faut idéalement fournir le titre ; l(es) auteur(s) ; détails d’édition (texte libre), la maison d’édition ; l’ISBN ; le prix public ; le prix proposé et une image de la couverture. Lorsqu’il constitue sa liste, il serait également intéressant que monsieur Spirlet voie les exemplaires qui restent de l’année précédente (certains étudiants ne viennent jamais chercher les livres qu’ils commandent…) ;
+- pour chaque étudiant, gérer l’état de la commande, autrement dit, indiquer le statut des paiements et des livraisons. De ces indications devraient résulter des notifications (par mail typiquement). Voici un exemple de scénario : un étudiant a commandé 6 livres sur les 12 disponibles en tout et a effectué son paiement (les paiements se font par virement bancaire sur le compte de monsieur Spirlet. Il faut donner les informations de virement à l’étudiant). Pour les 6 livres concernés, monsieur Spirlet doit pouvoir noter que le paiement a été fait par l’étudiant. De même, lorsque monsieur Spirlet reçoit les livres, il doit pouvoir les marquer comme « disponibles » et l’étudiant doit recevoir une notification de cette disponibilité. De même, quand il vient emporter ses commandes, monsieur Spirlet peut changer le statut de « disponible » vers « emporté » et l’étudiant reçoit alors une notification récapitulative. On peut imaginer que toutes ces notifications sont envoyées au fur et à mesure des modifications réalisées, étudiant par étudiant, ou alors que monsieur Spirlet puisse « valider et envoyer les notifications » d’un coup. 
+
+Monsieur Spirlet souhaite visualiser la liste des commandes d’un coup d’œil. L’accueil de ce projet sera donc un dashboard, une sorte de feuille Excel indiquant le statut de chaque étudiant/livre. Naturellement, ceci doit aussi pouvoir être utilisé sur un téléphone, ce qui présente un défi intéressant en terme d’adaptabilité du design.
+
+Chaque changement de statut doit être associé à un timestamp et ce dernier doit être visible dans l’interface. On pourrait imaginer d’ailleurs de voir le détail d’une commande d’étudiant avec tout son historique.
+
+Je dispose d’une feuille excel d’exemple à vous présenter, afin de mieux appréhender le type d’information nécessaire.
+
+
+## Les étudiants doivent pouvoir :
+
+- s’inscrire eux-même dans l’application. Pour ce faire, ils doivent fournir leur nom, leur prénom et leur email. L’email doit être vérifié. Quand un étudiant est inscrit, monsieur Spirlet reçoit un email de notification ; 
+- constituer une commande. Attention, ils peuvent commander un même livre en plusieurs exemplaires. On peut aussi imaginer qu’une commande puisse être constituée en plusieurs fois (un état brouillon…). Quand une commande est constituée, monsieur Spirlet reçoit une notification ; 
+- voir les statuts associés à leur commande. 
 
 Les statuts possible pour un couple livre/étudiant sont : 
 
-- n/a (pas concerné par une commande)
-- commandé (nombre)
+- n/a (le livre n’est pas un livre que l’étudiant souhaite acheter)
+- commandé (préciser le nombre)
 - payé
 - disponible
 - livré
 
-Monsieur Spirlet souhaite visualiser la liste d’un coup d’œil. L’accueil de ce projet sera donc un dashboard, une sorte de feuille Excel indiquant le statut de chaque étudiant/livre. Naturellement, ceci doit aussi pouvoir être utilisé sur un téléphone, ce qui présente un défi intéressant en terme d’adaptabilité du design.
+Monsieur Spirlet souhaite visualiser la liste des commandes d’un coup d’œil. L’accueil de ce projet sera donc un dashboard, une sorte de feuille Excel indiquant le statut de chaque étudiant/livre. Naturellement, ceci doit aussi pouvoir être utilisé sur un téléphone, ce qui présente un défi intéressant en terme d’adaptabilité du design.
+
 Chaque changement de statut doit être associé à un timestamp et ce dernier doit être visible dans l’interface. On pourrait imaginer d’ailleurs de voir le détail d’une commande d’étudiant avec tout son historique.
