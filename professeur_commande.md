@@ -14,7 +14,7 @@
   - nombre commandé
 
 - champ de remarque modifiable en ecrivant dedans
-- valider les changements de la commande (et recapituler les changements de status des livres particulier, de la commander ainsi que le changement de commentaire) ou l'ajout de remarque à la commande
+- valider les changements de la commande (et recapituler les changements de status des livres particulier, de la commander ainsi que le changement de commentaire) ou l'ajout de remarque à la commande, un fois les changements de statuts ou l'ajout d'une remarque validé un mail est envoyé à l'étudiant.
 
 ## Remarque supplémentaires
 
