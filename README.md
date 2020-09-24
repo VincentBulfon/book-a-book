@@ -43,3 +43,6 @@ Les statuts possible pour un couple livre/étudiant sont :
 Monsieur Spirlet souhaite visualiser la liste des commandes d’un coup d’œil. L’accueil de ce projet sera donc un dashboard, une sorte de feuille Excel indiquant le statut de chaque étudiant/livre. Naturellement, ceci doit aussi pouvoir être utilisé sur un téléphone, ce qui présente un défi intéressant en terme d’adaptabilité du design.
 
 Chaque changement de statut doit être associé à un timestamp et ce dernier doit être visible dans l’interface. On pourrait imaginer d’ailleurs de voir le détail d’une commande d’étudiant avec tout son historique.
+
+## Ressources en ligne :
+- Wireframe adobe XD : https://xd.adobe.com/view/ae520e06-88ff-424e-8ba1-449c464ccf59-fb01/
