@@ -12,6 +12,6 @@ class BookTableSeeder extends Seeder
         //DB::table('books')->delete();
 
         // BookSeeder
-        Book::factory()->times(50)->create();
+        Book::factory()->times(20)->create();
     }
 }

@@ -17,24 +17,16 @@ class BookOrderTableSeeder extends Seeder
         $orders = Order::all();
         $books = Book::all();
         foreach ($orders as $order) {
-            $nbrOfBookInOrder = rand(1, $books->count());
+            $nbrOfBookInOrder = mt_rand(1, $books->count());
             $thisOrderBooks = [];
-            for ($i = 0; $i <= $nbrOfBookInOrder ; $i++) {
-                $randBookId = $books->random()->id;
-                if (BookOrder::all()->isEmpty()) {
-                    BookOrder::create([
-                        'order_id' => $orders->first()->id,
-                        'book_id' => $randBookId
-                    ]);
-                }
-                //foreach line bookauthor which match our actual book_id
-                foreach (BookOrder::where('book_id', '=', $order->id)->get() as $thisOrder) {
-                    $thisOrderBooks[] = $thisOrder->book_id;
-                }
-                //create a new line with defined authors in relation with the books
-                BookOrder::create([
-                    'order_id' => $order->id,
-                    'book_id' => DB::table('books')->whereNotIn('id', $thisOrderBooks)->get()->random()->id]);
+            while (count($thisOrderBooks) < $nbrOfBookInOrder) {
+                $rand = rand(1, $nbrOfBookInOrder);
+                //ensue that no number can be duplicated in the array
+                $thisOrderBooks[$rand] = $rand;
+            };
+            foreach ($thisOrderBooks as $thisOrderBook) {
+                BookOrder::create(['order_id' => $order->id,
+                    'book_id' => $thisOrderBook]);
             }
         }
     }
