@@ -20,7 +20,7 @@ class BookOrderTableSeeder extends Seeder
             $nbrOfBookInOrder = mt_rand(1, $books->count());
             $thisOrderBooks = [];
             while (count($thisOrderBooks) < $nbrOfBookInOrder) {
-                $rand = rand(1, $nbrOfBookInOrder);
+                $rand = mt_rand(1, $nbrOfBookInOrder);
                 //ensue that no number can be duplicated in the array
                 $thisOrderBooks[$rand] = $rand;
             };
