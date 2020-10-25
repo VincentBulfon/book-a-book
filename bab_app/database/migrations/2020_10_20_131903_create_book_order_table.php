@@ -12,6 +12,7 @@ class CreateBookOrderTable extends Migration
             $table->timestamps();
             $table->integer('order_id')->unsigned();
             $table->integer('book_id')->unsigned();
+            $table->integer('quantity')->unsigned();
         });
     }
 
