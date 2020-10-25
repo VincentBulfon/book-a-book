@@ -26,7 +26,8 @@ class BookOrderTableSeeder extends Seeder
             };
             foreach ($thisOrderBooks as $thisOrderBook) {
                 BookOrder::create(['order_id' => $order->id,
-                    'book_id' => $thisOrderBook]);
+                    'book_id' => $thisOrderBook,
+                    'quantity' => mt_rand(1, 10)]);
             }
         }
     }
