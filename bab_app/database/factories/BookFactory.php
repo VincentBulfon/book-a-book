@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Book;
+use App\Models\TextualContent;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class BookFactory extends Factory
@@ -21,8 +22,11 @@ class BookFactory extends Factory
      */
     public function definition()
     {
+        $txtContent = TextualContent::all()->shuffle();
+
         return [
-            'title' => $this->faker->sentence(4)
+            'title' => $this->faker->sentence(4),
+            'textual_content_id' => $txtContent->take(1)->first()->id
         ];
     }
 }
