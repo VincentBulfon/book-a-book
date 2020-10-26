@@ -4,21 +4,20 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateOrdersTable extends Migration
+class CreateAcademicYearsTable extends Migration
 {
     public function up()
     {
-        Schema::create('orders', function (Blueprint $table) {
+        Schema::create('academic_years', function (Blueprint $table) {
             $table->increments('id');
-            $table->foreignId('user_id');
             $table->timestamps();
-            $table->softDeletes();
-            $table->integer('academic_year_id')->unsigned();
+            $table->year('starting_year');
+            $table->year('ending_year');
         });
     }
 
     public function down()
     {
-        Schema::drop('orders');
+        Schema::drop('academic_years');
     }
 }
