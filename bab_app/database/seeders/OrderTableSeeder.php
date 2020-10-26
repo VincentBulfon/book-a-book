@@ -16,6 +16,7 @@ class OrderTableSeeder extends Seeder
         foreach (User::all() as $user) {
             Order::create([
                 'user_id' => $user->id,
+                'academic_year_id' => '1'
             ]);
         }
     }

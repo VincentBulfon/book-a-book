@@ -16,6 +16,9 @@ class DatabaseSeeder extends Seeder
     {
         Model::unguard();
 
+        $this->call(AcademicYearSeeder::class);
+        $this->command->info('Academic Year Table Seeded');
+
         $this->call(UserTableSeeder::class);
         $this->command->info('User table seeded!');
 
