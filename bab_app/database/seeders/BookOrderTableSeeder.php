@@ -17,17 +17,15 @@ class BookOrderTableSeeder extends Seeder
         $orders = Order::all();
         $books = Book::all();
         foreach ($orders as $order) {
+            $sBooks = $books->shuffle();
             $nbrOfBookInOrder = mt_rand(1, $books->count());
-            $thisOrderBooks = [];
-            while (count($thisOrderBooks) < $nbrOfBookInOrder) {
-                $rand = mt_rand(1, $nbrOfBookInOrder);
-                //ensue that no number can be duplicated in the array
-                $thisOrderBooks[$rand] = $rand;
-            };
+            $thisOrderBooks = $sBooks->take($nbrOfBookInOrder);
             foreach ($thisOrderBooks as $thisOrderBook) {
-                BookOrder::create(['order_id' => $order->id,
-                    'book_id' => $thisOrderBook,
-                    'quantity' => mt_rand(1, 10)]);
+                BookOrder::create([
+                    'order_id' => $order->id,
+                    'book_id' => $thisOrderBook->id,
+                    'quantity' => mt_rand(1, 10)
+                ]);
             }
         }
     }
