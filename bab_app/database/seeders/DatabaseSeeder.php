@@ -22,6 +22,9 @@ class DatabaseSeeder extends Seeder
         $this->call(UserTableSeeder::class);
         $this->command->info('Users table seeded!');
 
+        $this->call(TextualContentTableSeeder::class);
+        $this->command->info('TextualContent table seeded!');
+
         $this->call(BookTableSeeder::class);
         $this->command->info('Books table seeded!');
 
@@ -42,9 +45,6 @@ class DatabaseSeeder extends Seeder
 
         $this->call(BookOrderTableSeeder::class);
         $this->command->info('BookOrder table seeded!');
-
-        $this->call(TextualContentTableSeeder::class);
-        $this->command->info('TextualContent table seeded!');
 
         $this->call(BookAuthorTableSeeder::class);
         $this->command->info('BookAuthor table seeded!');
