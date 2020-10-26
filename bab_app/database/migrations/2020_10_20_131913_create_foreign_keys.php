@@ -1,4 +1,4 @@
-<?php
+cd ../<?php
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -42,6 +42,21 @@ class CreateForeignKeys extends Migration
             $table->foreign('author_id')->references('id')->on('authors')
                 ->onDelete('restrict')
                 ->onUpdate('restrict');
+        });
+        Schema::table('sales', function (Blueprint $table) {
+            $table->foreign('academic_year_id')->references('id')->on('academic_years')
+                        ->onDelete('restrict')
+                        ->onUpdate('restrict');
+        });
+        Schema::table('sales', function (Blueprint $table) {
+            $table->foreign('book_id')->references('id')->on('books')
+                        ->onDelete('cascade')
+                        ->onUpdate('no action');
+        });
+        Schema::table('orders', function (Blueprint $table) {
+            $table->foreign('academic_year_id')->references('id')->on('academic_years')
+                        ->onDelete('restrict')
+                        ->onUpdate('restrict');
         });
     }
 
