@@ -22,7 +22,7 @@ class BookAuthorTableSeeder extends Seeder
             //restet the table of the current book authors
             $thisBookAuthors = [];
             //for the defined number of authors
-            for ($i = 0; $i < $nbrOfAuthors; $i++) {
+            for ($i = 1; $i < $nbrOfAuthors; $i++) {
                 //we pick an random id of an author
                 $randAuthorId = Author::all()->random()->id;
                 if (BookAuthor::all()->isEmpty()) {
