@@ -29,4 +29,9 @@ class Book extends Model
     {
         return $this->hasOne('App\Models\TextualContent', 'textual_content_id');
     }
+
+    public function academicYears()
+    {
+        return $this->belongsToMany('App\Models\AcademicYear', 'sales', 'academicYear')->withPivot('student_price', 'public_price');
+    }
 }
