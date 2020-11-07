@@ -4,7 +4,7 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class inscription-create extends Component
+class order-book extends Component
 {
     /**
      * Create a new component instance.
@@ -23,6 +23,6 @@ class inscription-create extends Component
      */
     public function render()
     {
-        return view('components.inscription-create');
+        return view('components.order-book');
     }
 }

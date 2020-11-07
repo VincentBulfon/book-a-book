@@ -11,5 +11,6 @@ class AcademicYear extends Model
 
     public function books()
     {
+        return $this->belongsToMany(App\Models\Books::class, 'sales')->withPivot('student_price', 'public_price');
     }
 }

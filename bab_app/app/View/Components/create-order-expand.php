@@ -4,7 +4,7 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class update-password-update extends Component
+class create-order-expand extends Component
 {
     /**
      * Create a new component instance.
@@ -23,6 +23,6 @@ class update-password-update extends Component
      */
     public function render()
     {
-        return view('components.update-password-update');
+        return view('components.create-order-expand');
     }
 }

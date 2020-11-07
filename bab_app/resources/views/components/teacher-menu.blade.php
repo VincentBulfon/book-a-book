@@ -1,11 +1,12 @@
 <nav>
     <div>
         <h2>Menu des commandes</h2>
-        <a href="#TODO">
-            <img
-                src="#TODO"
-                alt=""
-            /><span>rétracter le menu</span></a>
+        <label for="main_menu"><span>rétracter le menu principale</span>#TODO burger menu</label>
+        <input
+            type="checkbox"
+            name=""
+            id="main_menu"
+        >
     </div>
     <div>
         <a href="#TODO"><img

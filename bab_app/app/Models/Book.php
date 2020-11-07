@@ -10,28 +10,35 @@ class Book extends Model
 {
     protected $table = 'books';
     public $timestamps = true;
-
     use HasFactory ,SoftDeletes;
 
+    protected $fillable = [];
     protected $dates = ['deleted_at'];
 
+    /**
+     * return the relation for the orders asociated to this book
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
     public function orders()
     {
         return $this->belongsToMany('App\Models\Order');
     }
 
+    /**
+     * return the relationship for authors associated to this book
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
     public function authors()
     {
-        return $this->belongsToMany(Author::class, 'books_author');
+        return $this->belongsToMany(Author::class, 'book_author');
     }
 
-    public function EditionComment()
-    {
-        return $this->hasOne('App\Models\TextualContent', 'textual_content_id');
-    }
-
+    /**
+     * return the relationship for the academics years and the price from pivot associated to this command
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
     public function academicYears()
     {
-        return $this->belongsToMany('App\Models\AcademicYear', 'sales', 'academicYear')->withPivot('student_price', 'public_price');
+        return $this->belongsToMany(AcademicYear::class, 'sales', 'academic_year_id', 'book_id')->withPivot('student_price', 'public_price');
     }
 }

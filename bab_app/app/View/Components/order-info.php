@@ -4,7 +4,7 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class update-password-success extends Component
+class order-info extends Component
 {
     /**
      * Create a new component instance.
@@ -23,6 +23,6 @@ class update-password-success extends Component
      */
     public function render()
     {
-        return view('components.update-password-success');
+        return view('components.order-info');
     }
 }
